@@ -6,8 +6,12 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import com.sti.appBank.dao.AccountDao;
 import com.sti.appBank.dao.CustomerDao;
+import com.sti.appBank.dao.TransactionDao;
+import com.sti.appBank.dao.impl.AccountImpl;
 import com.sti.appBank.dao.impl.CustomerImpl;
+import com.sti.appBank.dao.impl.TransactionImpl;
 
 @Configuration
 public class DaoSpringConfig {
@@ -17,6 +21,15 @@ public class DaoSpringConfig {
 		return new CustomerImpl();
 	}
 	
+	@Bean
+	public AccountDao accountDao() {
+		return new AccountImpl();
+	}
+	
+	@Bean
+	public TransactionDao TransactionDao() {
+		return new TransactionImpl();
+	}
 	
 	
 	@Bean
